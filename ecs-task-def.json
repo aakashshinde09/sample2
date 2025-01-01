@@ -12,7 +12,7 @@
         ]
       }
     ],
-    "family": "demo-container-task",
+    "family": "sample2-task-def",
     "networkMode": "awsvpc",
     "requiresCompatibilities": ["FARGATE"],
     "cpu": "256",
