@@ -10,9 +10,9 @@ phases:
     commands:
       - IMAGE_TAG=$(date +%Y%m%d%H%M%S)  # Generate a unique image tag
       - echo "Building the Docker image..."
-      - docker build -t 010928179293.dkr.ecr.us-east-1.amazonaws.com/akash:$IMAGE_TAG .
+      - docker build -t 010928179293.dkr.ecr.us-east-1.amazonaws.com/akash2:$IMAGE_TAG .
       - echo "Pushing the Docker image..."
-      - docker push 010928179293.dkr.ecr.us-east-1.amazonaws.com/akash:$IMAGE_TAG
+      - docker push 010928179293.dkr.ecr.us-east-1.amazonaws.com/akash2:$IMAGE_TAG
       - echo $IMAGE_TAG > imageTag.txt  # Save the image tag for the next stage
 
   post_build:

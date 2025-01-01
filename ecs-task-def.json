@@ -1,8 +1,8 @@
 {
     "containerDefinitions": [
       {
-        "name": "akash",
-        "image": "010928179293.dkr.ecr.us-east-1.amazonaws.com/akash:${IMAGE_TAG}",
+        "name": "akash2",
+        "image": "010928179293.dkr.ecr.us-east-1.amazonaws.com/akash2:${IMAGE_TAG}",
         "essential": true,
         "portMappings": [
           {
