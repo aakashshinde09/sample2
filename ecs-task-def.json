@@ -1,0 +1,22 @@
+{
+    "containerDefinitions": [
+      {
+        "name": "akash",
+        "image": "010928179293.dkr.ecr.us-east-1.amazonaws.com/akash:${IMAGE_TAG}",
+        "essential": true,
+        "portMappings": [
+          {
+            "containerPort": 3000,
+            "protocol": "tcp"
+          }
+        ]
+      }
+    ],
+    "family": "demo-container-task",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": ["FARGATE"],
+    "cpu": "256",
+    "memory": "512",
+    "executionRoleArn": "arn:aws:iam::010928179293:role/ecsTaskExecutionRole"
+}
+  
