@@ -14,6 +14,7 @@ phases:
       - echo "Pushing the Docker image..."
       - docker push 010928179293.dkr.ecr.us-east-1.amazonaws.com/akash2:$IMAGE_TAG
       - echo $IMAGE_TAG > imageTag.txt  # Save the image tag for the next stage
+      - sed -i "s/\${IMAGE_TAG}/$IMAGE_TAG/g" ecs-task-def.json  # Replace placeholder in task definition
 
   post_build:
     commands:
