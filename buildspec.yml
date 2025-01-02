@@ -13,13 +13,13 @@ phases:
       - docker build -t 010928179293.dkr.ecr.us-east-1.amazonaws.com/akash2:$IMAGE_TAG .  # Build your app image
       - echo "Pushing the Docker image to ECR..."
       - docker push 010928179293.dkr.ecr.us-east-1.amazonaws.com/akash2:$IMAGE_TAG
-      - echo Writing image definitions file... 
+      - echo Writing image definitions file...
       # Set container name for application and sidecar
       - DOCKER_CONTAINER_NAME=sample
-      - PROMETHEUS_EXPORTER_CONTAINER_NAME=prometheus-exporter
+      - NODE_EXPORTER_CONTAINER_NAME=node-exporter
       # Correct way to append both containers to the imagedefinitions.json file
       - printf '[{"name":"%s","imageUri":"%s"}' $DOCKER_CONTAINER_NAME 010928179293.dkr.ecr.us-east-1.amazonaws.com/akash2:$IMAGE_TAG > imagedefinitions.json
-      - printf ',{"name":"%s","imageUri":"%s"}]' $PROMETHEUS_EXPORTER_CONTAINER_NAME prom/node-exporter:latest >> imagedefinitions.json
+      - printf ',{"name":"%s","imageUri":"%s"}]' $NODE_EXPORTER_CONTAINER_NAME 010928179293.dkr.ecr.us-east-1.amazonaws.com/akash2:node-exporter >> imagedefinitions.json
       - echo $DOCKER_CONTAINER_NAME
       - echo printing imagedefinitions.json
       - cat imagedefinitions.json
