@@ -24,9 +24,6 @@ app.get('/api/users', (req, res) => {
   res.json(users);
 });
 
-app.get('/contact', (req, res) => {
-  res.send('Contact us at contact@example.com');
-});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
