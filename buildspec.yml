@@ -27,6 +27,4 @@ phases:
 
 artifacts:
   files:
-    - imageTag.txt  # Pass the image tag to the deploy stage
-    - ecs-task-def.json
-  discard-paths: yes
+    - imagedefinitions.json
