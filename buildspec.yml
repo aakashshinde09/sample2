@@ -17,9 +17,9 @@ phases:
       # Set container name for application and sidecar
       - DOCKER_CONTAINER_NAME=sample
       - PROMETHEUS_EXPORTER_CONTAINER_NAME=prometheus-exporter
-      - printf '[{"name":"%s","imageUri":"%s"}]' $DOCKER_CONTAINER_NAME 010928179293.dkr.ecr.us-east-1.amazonaws.com/akash2:$IMAGE_TAG > imagedefinitions.json
-      # Include the Prometheus exporter sidecar container image (e.g., Prometheus Node Exporter)
-      - printf '[{"name":"%s","imageUri":"%s"}]' $PROMETHEUS_EXPORTER_CONTAINER_NAME prom/node-exporter:latest >> imagedefinitions.json
+      # Correct way to append both containers to the imagedefinitions.json file
+      - printf '[{"name":"%s","imageUri":"%s"}' $DOCKER_CONTAINER_NAME 010928179293.dkr.ecr.us-east-1.amazonaws.com/akash2:$IMAGE_TAG > imagedefinitions.json
+      - printf ',{"name":"%s","imageUri":"%s"}]' $PROMETHEUS_EXPORTER_CONTAINER_NAME prom/node-exporter:latest >> imagedefinitions.json
       - echo $DOCKER_CONTAINER_NAME
       - echo printing imagedefinitions.json
       - cat imagedefinitions.json
